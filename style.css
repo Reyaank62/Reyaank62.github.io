@@ -26,3 +26,9 @@ audio {
 li::marker {
     color: var(--accent);
 }
+
+
+#games summary {
+    user-select: none;
+    cursor: pointer;
+}
