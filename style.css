@@ -12,7 +12,10 @@ body {
     color: var(--text);
     background: var(--background);
     font-family: "Zalando Sans Expanded";
+    padding-left: 5px;
 }
+
+
 
 img {
     padding: 2px;
@@ -31,4 +34,11 @@ li::marker {
 #games summary {
     user-select: none;
     cursor: pointer;
+}
+
+details summary {
+    font-weight: bold
+}
+details[open] summary {
+    color: var(--accent)
 }
