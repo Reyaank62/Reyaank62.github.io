@@ -42,3 +42,9 @@ details summary {
 details[open] summary {
     color: var(--accent)
 }
+
+#links {
+    font: weight 700;
+    font-style: oblique;
+    font-size: large;
+}
