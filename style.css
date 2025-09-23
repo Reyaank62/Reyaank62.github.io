@@ -48,3 +48,10 @@ details[open] summary {
     font-style: oblique;
     font-size: large;
 }
+
+.under {
+    text-decoration:underline white
+}
+.underover{
+    text-decoration:underline overline;
+}
