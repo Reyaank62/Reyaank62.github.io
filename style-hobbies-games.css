@@ -1,0 +1,70 @@
+:root {
+    --text: #ffffff;
+    --background: #000000;
+    --primary: #d5d4e1;
+    --secondary: #fffefe;
+    --accent: #ff0000;
+}
+
+
+
+body {
+    color: var(--text);
+    background: var(--background);
+    font-family: "Zalando Sans Expanded";
+    padding-left: 5px
+}
+
+
+
+img {
+    padding: 2px;
+    border-radius: 50px;
+}
+
+audio {
+    background: var(--background);
+}
+
+li::marker {
+    color: var(--accent);
+}
+
+
+#games summary {
+    user-select: none;
+    cursor: pointer;
+}
+
+details summary {
+    font-weight: bold
+}
+
+details[open] summary {
+    color: var(--accent)
+}
+
+#links {
+    font-weight: 700;
+    font-style: oblique;
+    font-size: large;
+}
+
+.under {
+    text-decoration: underline white
+}
+
+.underover {
+    text-decoration: underline overline;
+}
+
+* {
+    /* border: 1px solid; */
+    /* border:1px dotted ; */
+    /* padding-left: 5px; */
+    /* padding-top: 1px */
+    margin: 10px;
+    margin-right: 1px;
+    width: auto;
+    height: auto;
+}
