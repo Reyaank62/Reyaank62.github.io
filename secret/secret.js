@@ -1,11 +1,10 @@
 function secret() {
     const hour = new Date().getHours();
 
-    if (hour >= 0 && hour < 24) {
+    if (hour >= 0 && hour < 6) {
         const message = document.createElement('div');
         message.textContent = "How lovely are the portals of the night, when stars come out to watch the daylight die?";
 
-        // Position in bottom right corner
         message.style.position = 'fixed';
         message.style.bottom = '20px';
         message.style.right = '20px';
@@ -15,12 +14,7 @@ function secret() {
         message.style.zIndex = '9999';
 
         document.body.appendChild(message);
-
-        setTimeout(() => {
-            document.body.removeChild(message);
-        }, 5000);
     }
 }
 
-// Only check when page loads
 window.addEventListener('load', secret);
