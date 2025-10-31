@@ -1,37 +1,36 @@
 function secret() {
     const hour = new Date().getHours();
-    // Check if message has already been shown (stored in localStorage)
-    const hasBeenShown = localStorage.getItem('nightMessageShown');
+    const lastShown = localStorage.getItem('nightMessageLastShown');
+    const currentTime = new Date().getTime();
 
-    if (hour >= 0 && hour < 6 && !hasBeenShown) {
-        const overlay = document.createElement('div');
-        overlay.style.position = 'fixed';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.backgroundColor = 'black';
-        overlay.style.zIndex = '9999';
-        overlay.style.display = 'flex';
-        overlay.style.alignItems = 'center';
-        overlay.style.justifyContent = 'center';
+    
+    const canShow = !lastShown || (currentTime - parseInt(lastShown)) > 300000;
 
-       
+    if (hour >= 0 && hour < 24 && canShow) {
+        
+        localStorage.setItem('nightMessageLastShown', currentTime.toString());
+
+        
         const message = document.createElement('div');
         message.textContent = "How lovely are the portals of the night, when stars come out to watch the daylight die?";
+
+       
+        message.style.position = 'fixed';
+        message.style.top = '50%';
+        message.style.left = '50%';
+        message.style.transform = 'translate(-50%, -50%)';
         message.style.color = 'white';
         message.style.fontSize = '24px';
         message.style.textAlign = 'center';
         message.style.padding = '20px';
+        message.style.maxWidth = '80%';
+        message.style.backgroundColor = 'transparent';
+        message.style.zIndex = '9999';
 
-        overlay.appendChild(message);
-        document.body.appendChild(overlay);
-
-        
-        localStorage.setItem('nightMessageShown', 'true');
+        document.body.appendChild(message);
 
         setTimeout(() => {
-            document.body.removeChild(overlay);
+            document.body.removeChild(message);
         }, 5000);
     }
 }
