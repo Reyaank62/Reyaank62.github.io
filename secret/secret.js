@@ -2,7 +2,7 @@ let messageShown = false;
 
 function secret() {
     const hour = new Date().getHours();
-    if (hour >= 0 && hour < 6 && !messageShown) {
+    if (hour >= 0 && hour < 24 && !messageShown) {
         messageShown = true;
         const message = document.createElement('div');
         message.textContent = "How lovely are the portals of the night, when stars come out to watch the daylight die?";
