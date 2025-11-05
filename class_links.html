@@ -19,13 +19,30 @@
     <button id="main">Back To Homepage</button>
     <ul>
         <li>https://GUEST666THEREAL87.github.io</li>
-        <li></li>
+        <li></li> 
         <li></li>
         <li></li>
         <li></li>
     </ul>
     <script src="Javascript-linking/class_links.js"></script>
     <script src="secret/secret.js"></script>
+
+<p id="balloon">🎈</p>
+<script>
+    let balloon = document.getElementById("balloon");
+    let scale = 1;
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "b") {
+            scale *= 1.1;
+        } else if (event.key === "v") {
+            scale *= 0.9;
+        }
+        balloon.style.transform = "scale(" + scale + ")";
+    });
+</script>
+
+
 </body>
 
 </html>
