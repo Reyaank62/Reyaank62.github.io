@@ -7,13 +7,13 @@
 }
 
 
-body{
+body {
     font-family: 'Zalando Sans Expanded', sans-serif;
     background: var(--background);
     min-height: 100vh;
     color: var(--text);
     line-height: 1.6;
-    padding:2rem
+    padding: 2rem
 }
 
 nav {
@@ -23,6 +23,7 @@ nav {
     margin: 2rem;
     flex-wrap: wrap;
 }
+
 .title {
     text-align: center;
     font-size: 3rem;
@@ -41,13 +42,13 @@ section {
 }
 
 section h2 {
-font-size: 1.8rem;
-margin-bottom: 1.5rem;
-color: var(--primary);
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
 }
 
 #links {
-text-align: center;
+    text-align: center;
 }
 
 #links h2 {
@@ -76,4 +77,27 @@ text-align: center;
     border-radius: 8px;
     display: block;
     object-fit: cover;
+}
+
+#images2 {
+    position: absolute;
+    right: 2rem;
+    top: 30px;
+    height: calc(100vh - 30px);
+    width: 500px;
+    text-align: right;
+    border: none;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#images2 img {
+    width: 280px;
+    height: 1200px;
+    border: none;
+    border-radius: 8px;
+    display: block;
+    object-fit: cover;
+    margin-left: auto;
 }
