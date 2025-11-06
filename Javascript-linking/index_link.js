@@ -1,7 +1,7 @@
 document.getElementById("classlinks").onclick = function () {
-    window.location.href = "/class_links.html";
+    window.location.href = "./class_links.html";
 };
 
 document.getElementById("hobbies").onclick = function () {
-    window.location.href = "/hobbies.html";
+    window.location.href = "./hobbies.html";
 };
