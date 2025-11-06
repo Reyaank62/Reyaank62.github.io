@@ -5,3 +5,4 @@ document.getElementById("classlinks").onclick = function () {
 document.getElementById("hobbies").onclick = function () {
     window.location.href = "./hobbies.html";
 };
+ 
