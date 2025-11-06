@@ -33,9 +33,9 @@
     let scale = 1;
 
     document.addEventListener("keydown", function (event) {
-        if (event.key === "b") {
+        if (event.key === "ArrowUp") {
             scale *= 1.1;
-        } else if (event.key === "v") {
+        } else if (event.key === "ArrowDown") {
             scale *= 0.9;
         }
         balloon.style.transform = "scale(" + scale + ")";

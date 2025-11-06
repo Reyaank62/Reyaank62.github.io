@@ -3,7 +3,7 @@ function secret() {
 
     if (hour >= 0 && hour < 6) {
         const message = document.createElement('div');
-        message.textContent = "How lovely are the portals of the night, when stars come out to watch the daylight die?";
+        message.textContent = "How lovely are the portals of the night, when stars come out to watch the daylight die? -Thomas Cole";
 
         message.style.position = 'fixed';
         message.style.bottom = '20px';
