@@ -39,12 +39,43 @@ section {
     padding: 2rem;
     margin: 2rem auto;
     max-width: 900px;
+    position: relative;
+    z-index: 1;
+}
+
+#day-form {
+    text-align: center;
+    background: var(--background);
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    position: relative;
+    z-index: 2;
 }
 
 section h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     color: var(--primary);
+}
+
+label {
+    color: var(--text);
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+input[type="text"] {
+    background: var(--secondary);
+    color: var(--background);
+    padding: 0.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 4px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
 }
 
 #links {
