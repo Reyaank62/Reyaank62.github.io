@@ -81,8 +81,14 @@
         const greetingOutput = document.getElementById("greetingOutput");
 
         btnGreet.addEventListener("click", () => {
-            // TODO: Display a message like "Hello NAME, you are AGE years old!"
-            // Challenge: If age < 13, show "You're just a kid!" instead.
+            let name = nameInput.value;
+            let age = ageInput.value;
+
+            if (age < 13) {
+                greetingOutput.textContent = `Hello ${name}, you're just a kid!`;
+            } else {
+                greetingOutput.textContent = `Hello ${name}, you are ${age} years old!`;
+            }
         });
 
         // --- PART 2 ---
