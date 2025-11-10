@@ -103,6 +103,9 @@
         <div class="output" id="modeOutput"></div>
     </section>
 
+    <button id="btnContinue" style="display: none">CONTINUE</button>
+
+
     <script>
         // --- PART 1 ---
     const nameInput = document.getElementById("nameInput");
@@ -147,13 +150,13 @@
         const subscribeBox = document.getElementById("subscribeBox");
         const btnSubmit = document.getElementById("btnSubmit");
         const modeOutput = document.getElementById("modeOutput");
+        const btnContinue = document.getElementById("btnContinue");
 
         btnSubmit.addEventListener("click", () => {
             let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
             let isSubscribed = subscribeBox.checked;
             let message = "SELECTED MODE: " + modes + "\n" + "SUBSCRIPTION STATUS: " + (isSubscribed ? "TRUE" : "FALSE");
              modeOutput.textContent = message;
-
         });
     </script>
 </body>
