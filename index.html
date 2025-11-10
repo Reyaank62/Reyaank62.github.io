@@ -66,40 +66,40 @@
     <h1>Input Element Challenge</h1>
 
     <section id="part1">
-        <h2>Part 1: Text and Number Inputs</h2>
+        <h2>PART 1: TEXT AND NUMBER INPUTS</h2>
         <label>
-            Name:
-            <input id="nameInput" type="text" placeholder="Enter your name">
+            USER:
+            <input id="nameInput" type="text">
         </label>
         <label>
-            Age:
+            AGE:
             <input id="ageInput" type="number" min="0" max="120">
         </label>
-        <button id="btnGreet">Greet Me</button>
+        <button id="btnGreet">SUBMIT</button>
         <div class="output" id="greetingOutput"></div>
     </section>
 
     <section id="part2">
-        <h2>Part 2: Color and Range Inputs</h2>
+        <h2>PART 2: COLOR AND RANGE INPUTS</h2>
         <label>
-            Favorite Color:
+            COLOR:
             <input id="colorInput" type="color" value="#00AAFF">
         </label>
         <label>
-            Volume:
+            VOLUME:
             <input id="volumeInput" type="range" min="0" max="100" value="50">
         </label>
         <div class="output" id="colorOutput"></div>
     </section>
 
     <section id="part3">
-        <h2>Part 3: Checkbox and Radio Buttons</h2>
-        <label><input type="checkbox" id="subscribeBox"> Subscribe to newsletter</label>
-        <p>Pick a mode:</p>
-        <label><input type="radio" name="mode" value="Light"> Light</label>
-        <label><input type="radio" name="mode" value="Dark"> Dark</label>
-        <label><input type="radio" name="mode" value="System" checked> System</label>
-        <button id="btnSubmit">Submit</button>
+        <h2>PART 3: CHECKBOX AND RADIO BUTTONS</h2>
+        <label><input type="checkbox" id="subscribeBox"> SUBSCRIBE TO NEWSLETTER</label>
+        <p>PICK A MODE:</p>
+        <label><input type="radio" name="mode" value="Light"> LIGHT</label>
+        <label><input type="radio" name="mode" value="Dark"> DARK</label>
+        <label><input type="radio" name="mode" value="System" checked> SYSTEM</label>
+        <button id="btnSubmit">SUBMIT</button>
         <div class="output" id="modeOutput"></div>
     </section>
 
@@ -149,9 +149,9 @@
         const modeOutput = document.getElementById("modeOutput");
 
         btnSubmit.addEventListener("click", () => {
-            let modes = document.querySelector('input[name="mode"]:checked').value;
+            let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
             let isSubscribed = subscribeBox.checked;
-            let message = modes + ", subscribed: " + (isSubscribed ? "yes" : "no");
+            let message = "SELECTED MODE: " + modes + "\n" + "SUBSCRIPTION STATUS: " + (isSubscribed ? "TRUE" : "FALSE");
              modeOutput.textContent = message;
 
         });
