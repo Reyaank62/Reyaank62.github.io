@@ -157,6 +157,13 @@
             let isSubscribed = subscribeBox.checked;
             let message = "SELECTED MODE: " + modes + "\n" + "SUBSCRIPTION STATUS: " + (isSubscribed ? "TRUE" : "FALSE");
              modeOutput.textContent = message;
+
+             const age = parseInt(ageInput.value,);
+             
+             if (age >= 13 && isSubscribed && modes === "DARK") {
+                btnContinue.style.display = "inline-block";
+            } else
+                btnContinue.style.display = "none";
         });
     </script>
 </body>
