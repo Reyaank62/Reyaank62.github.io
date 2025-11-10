@@ -111,8 +111,11 @@
         const modeOutput = document.getElementById("modeOutput");
 
         btnSubmit.addEventListener("click", () => {
-            // TODO: Find which radio button is checked and display it.
-            // Challenge: Include whether the user subscribed or not.
+            let modes = document.querySelector('input[name="mode"]:checked').value;
+            let isSubscribed = subscribeBox.checked;
+            let message = modes + ", subscribed: " + (isSubscribed ? "yes" : "no");
+             modeOutput.textContent = message;
+
         });
     </script>
 </body>
