@@ -58,7 +58,12 @@
             border-radius: 6px;
         }
         
-        
+        #accessGranted {
+            font-size: 3.5rem;
+            color: #0f0;
+        }
+
+
     </style>
 </head>
 
@@ -103,7 +108,9 @@
         <div class="output" id="modeOutput"></div>
     </section>
 
-    <button id="btnContinue" style="display: none">CONTINUE</button>
+
+    <h2 id="accessGranted" style = "display: none">ACCESS GRANTED</h2>
+    <button id="btnContinue" style = "display: none; text-align: center">CONTINUE</button>
 
 
     <script>
@@ -159,11 +166,15 @@
              modeOutput.textContent = message;
 
              const age = parseInt(ageInput.value,);
-             
-             if (age >= 13 && isSubscribed && modes === "DARK") {
+
+
+            if (age >= 13 && isSubscribed && modes === "DARK") {
                 btnContinue.style.display = "inline-block";
-            } else
+                accessGranted.style.display = "block";
+            } else {
                 btnContinue.style.display = "none";
+                accessGranted.style.display = "none"; 
+            }
         });
     </script>
 </body>
