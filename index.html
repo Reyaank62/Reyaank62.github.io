@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Input Element Challenge</title>
+    <title>ACCESS CHALLENGE</title>
     <style>
         body {
             font-family: sans-serif;
@@ -83,10 +83,10 @@
 
     btnGreet.addEventListener("click", () => {
         const name = nameInput.value;
-        const age = parseInt(ageInput.value); 
+        const age = (ageInput.value); 
 
         let message = "SYSTEM NOTICE: GREETING SEQUENCE INITIATED\n";
-        message += `USER IDENTIFIED: ${name}.\n`;
+        message += `USER IDENTIFIED: ${name}\n`;
 
         if (age < 13) {
             message += `AGE CHECK: ${age} YEARS OLD\n`;
