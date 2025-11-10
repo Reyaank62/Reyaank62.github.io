@@ -28,6 +28,7 @@
         .output {
             margin-top: 1rem;
             font-weight: bold;
+            white-space: pre-wrap;
         }
     </style>
 </head>
@@ -75,21 +76,29 @@
 
     <script>
         // --- PART 1 ---
-        const nameInput = document.getElementById("nameInput");
-        const ageInput = document.getElementById("ageInput");
-        const btnGreet = document.getElementById("btnGreet");
-        const greetingOutput = document.getElementById("greetingOutput");
+    const nameInput = document.getElementById("nameInput");
+    const ageInput = document.getElementById("ageInput");
+    const btnGreet = document.getElementById("btnGreet");
+    const greetingOutput = document.getElementById("greetingOutput");
 
-        btnGreet.addEventListener("click", () => {
-            let name = nameInput.value;
-            let age = ageInput.value;
+    btnGreet.addEventListener("click", () => {
+        const name = nameInput.value;
+        const age = parseInt(ageInput.value); 
 
-            if (age < 13) {
-                greetingOutput.textContent = `Hello ${name}, you're just a kid!`;
-            } else {
-                greetingOutput.textContent = `Hello ${name}, you are ${age} years old!`;
-            }
-        });
+        let message = "SYSTEM NOTICE: GREETING SEQUENCE INITIATED\n";
+        message += `USER IDENTIFIED: ${name}.\n`;
+
+        if (age < 13) {
+            message += `AGE CHECK: ${age} YEARS OLD\n`;
+            message += "STATUS: MINOR DETECTED -- ACCESS DENIED";
+        } else {
+            message += `AGE CHECK: ${age} YEARS OLD\n`;
+            message += "STATUS: ADULT CONFIRMED -- CONTINUE";
+        }
+
+    
+        greetingOutput.textContent = message;
+    });
 
         // --- PART 2 ---
         const colorInput = document.getElementById("colorInput");
