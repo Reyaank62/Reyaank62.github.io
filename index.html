@@ -123,20 +123,25 @@
     btnGreet.addEventListener("click", () => {
         const name = nameInput.value;
         const age = (ageInput.value); 
+        const lines = [];
 
-        let message = "SYSTEM NOTICE: GREETING SEQUENCE INITIATED\n";
-        message += `USER IDENTIFIED: ${name}\n`;
-
-        if (age < 13) {
-            message += `AGE CHECK: ${age} YEARS OLD\n`;
-            message += "STATUS: MINOR DETECTED -- ACCESS DENIED";
+        lines.push("SYSTEM NOTICE: GREETING SEQUENCE INITIATED");
+        lines.push(`USER IDENTIFIED: ${name}`);
+         if (age < 13) {
+            lines.push (`AGE CHECK: ${age} YEARS OLD`);
+            lines.push ("STATUS: MINOR DETECTED -- ACCESS DENIED");
         } else {
-            message += `AGE CHECK: ${age} YEARS OLD\n`;
-            message += "STATUS: ADULT CONFIRMED -- CONTINUE";
+            lines.push (`AGE CHECK: ${age} YEARS OLD`);
+            lines.push ("STATUS: ADULT CONFIRMED -- CONTINUE");
         }
 
-    
-        greetingOutput.textContent = message;
+        greetingOutput.textContent = "";
+
+        lines.forEach((line, i) => {
+            setTimeout(() => {
+                greetingOutput.textContent += line + "\n";
+            }, i * 500);
+        });
     });
 
         // --- PART 2 ---
