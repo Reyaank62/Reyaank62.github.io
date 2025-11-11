@@ -180,35 +180,33 @@
     btnSubmit.addEventListener("click", () => {
         let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
         let isSubscribed = subscribeBox.checked;
+        const age = parseInt(ageInput.value);
         let messageLines = [
             `SELECTED MODE: ${modes}`,
             `SUBSCRIPTION STATUS: ${isSubscribed ? "TRUE" : "FALSE"}`
         ];
              modeOutput.textContent = "";
+             modeOutput.textContent += "SYSTEM NOTICE: AUTH SEQUENCE INITIATED\n";
+             modeOutput.textContent += "EVALUATING ACCESS CONDITIONS...\n";
 
             messageLines.forEach((line, i) => {
                 setTimeout(() => {
                     modeOutput.textContent += line + "\n";
-                }, i * 500);
+                }, 1000+ i * 500);
 
             });    
-        const age = parseInt(ageInput.value);
 
-        setTimeout(() => {
-            modeOutput.textContent += "EVALUATING ACCESS CONDITIONS...\n";
-
-            setTimeout(() => {
-                if (age >= 13 && isSubscribed && modes === "DARK") {
-                    btnContinue.style.display = "inline-block";
-                    accessGranted.style.display = "block";
-                    
-                } else {
-                    btnContinue.style.display = "none";
-                    accessGranted.style.display = "none";
-                    modeOutput.textContent += "ACCESS STATUS: DENIED\n";
-                }
-            }, 1000);
-        }, messageLines.length * 500);
+                 setTimeout(() => {
+            if (age >= 13 && isSubscribed && modes === "DARK") {
+                btnContinue.style.display = "inline-block";
+                accessGranted.style.display = "block";
+                modeOutput.textContent += "ACCESS STATUS: GRANTED\n"; 
+            } else {
+                btnContinue.style.display = "none";
+                accessGranted.style.display = "none";
+                modeOutput.textContent += "ACCESS STATUS: DENIED\n";
+            }
+        }, 1000 + messageLines.length * 500 + 500); 
     });
     </script>
 
