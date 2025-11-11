@@ -3,14 +3,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code&display=swap" rel="stylesheet">
 
 
-            <!--CORRECT ANSWERS:
+<!--CORRECT ANSWERS:
              USERNAME: ANY
              AGE: 13 OR OLDER
              COLOR: ANY
              VOLUME: ANY
              SUBSCRIBE TO NEWSLETTER: CHECKED
              MODE: DARK
-            --> 
+            -->
 
 
 <head>
@@ -42,7 +42,7 @@
             border-radius: 8px;
             font-weight: 600;
             background-color: black;
-           
+
         }
 
         .output {
@@ -51,7 +51,8 @@
             white-space: pre-wrap;
         }
 
-        input, button {
+        input,
+        button {
             font-size: 1rem;
             padding: 0.20rem;
             background-color: black;
@@ -69,7 +70,7 @@
             border: #0f0, solid 1px;
             border-radius: 6px;
         }
-        
+
         #accessGranted {
             font-size: 3.5rem;
             color: #0f0;
@@ -78,7 +79,6 @@
         body {
             font-family: 'Cascadia Code', Consolas, "Courier New", monospace;
         }
-
     </style>
 </head>
 
@@ -124,54 +124,54 @@
     </section>
 
 
-    <h2 id="accessGranted" style = "display: none">ACCESS GRANTED</h2>
-    <button id="btnContinue" style = "display: none; text-align: center">CONTINUE</button>
+    <h2 id="accessGranted" style="display: none">ACCESS GRANTED</h2>
+    <button id="btnContinue" style="display: none; text-align: center">CONTINUE</button>
 
 
     <script>
         // --- PART 1 ---
-    const nameInput = document.getElementById("nameInput");
-    const ageInput = document.getElementById("ageInput");
-    const btnGreet = document.getElementById("btnGreet");
-    const greetingOutput = document.getElementById("greetingOutput");
+        const nameInput = document.getElementById("nameInput");
+        const ageInput = document.getElementById("ageInput");
+        const btnGreet = document.getElementById("btnGreet");
+        const greetingOutput = document.getElementById("greetingOutput");
 
-    btnGreet.addEventListener("click", () => {
-        const name = nameInput.value;
-        const age = (ageInput.value); 
-        const lines = [];
+        btnGreet.addEventListener("click", () => {
+            const name = nameInput.value;
+            const age = (ageInput.value);
+            const lines = [];
 
-        lines.push("SYSTEM NOTICE: GREETING SEQUENCE INITIATED");
-        lines.push(`USER IDENTIFIED: ${name}`);
-         if (age < 13) {
-            lines.push (`AGE CHECK: ${age} YEARS OLD`);
-            lines.push ("STATUS: MINOR DETECTED -- ACCESS DENIED");
-        } else {
-            lines.push (`AGE CHECK: ${age} YEARS OLD`);
-            lines.push ("STATUS: ADULT CONFIRMED -- CONTINUE");
-        }
+            lines.push("SYSTEM NOTICE: GREETING SEQUENCE INITIATED");
+            lines.push(`USER IDENTIFIED: ${name}`);
+            if (age < 13) {
+                lines.push(`AGE CHECK: ${age} YEARS OLD`);
+                lines.push("STATUS: MINOR DETECTED -- ACCESS DENIED");
+            } else {
+                lines.push(`AGE CHECK: ${age} YEARS OLD`);
+                lines.push("STATUS: ADULT CONFIRMED -- CONTINUE");
+            }
 
-        greetingOutput.textContent = "";
+            greetingOutput.textContent = "";
 
-        lines.forEach((line, i) => {
-            setTimeout(() => {
-                greetingOutput.textContent += line + "\n";
-            }, i * 500);
+            lines.forEach((line, i) => {
+                setTimeout(() => {
+                    greetingOutput.textContent += line + "\n";
+                }, i * 500);
+            });
         });
-    });
 
         // --- PART 2 ---
         const colorInput = document.getElementById("colorInput");
         const volumeInput = document.getElementById("volumeInput");
         const colorOutput = document.getElementById("colorOutput");
 
-            function updateColorOutput() {
-                let color = colorInput.value;
-                let volume = volumeInput.value;
-                colorOutput.textContent = `COLOR: ${color}, VOLUME: ${volume}`;
-                colorOutput.style.backgroundColor = color;
+        function updateColorOutput() {
+            let color = colorInput.value;
+            let volume = volumeInput.value;
+            colorOutput.textContent = `COLOR: ${color}, VOLUME: ${volume}`;
+            colorOutput.style.backgroundColor = color;
 
-                document.body.style.backgroundColor = color;
-            }
+            document.body.style.backgroundColor = color;
+        }
         colorInput.addEventListener("input", updateColorOutput);
         volumeInput.addEventListener("input", updateColorOutput);
 
@@ -181,41 +181,53 @@
         const modeOutput = document.getElementById("modeOutput");
         const btnContinue = document.getElementById("btnContinue");
 
-    btnSubmit.addEventListener("click", () => {
-        let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
-        let isSubscribed = subscribeBox.checked;
-        const age = parseInt(ageInput.value);
-        let messageLines = [
-            `SELECTED MODE: ${modes}`,
-            `SUBSCRIPTION STATUS: ${isSubscribed ? "TRUE" : "FALSE"}`
-        ];
-             modeOutput.textContent = "";
-             modeOutput.textContent += "SYSTEM NOTICE: AUTH SEQUENCE INITIATED\n";
-             modeOutput.textContent += "EVALUATING ACCESS CONDITIONS...\n";
+        btnSubmit.addEventListener("click", () => {
+            let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
+            let isSubscribed = subscribeBox.checked;
+            const age = parseInt(ageInput.value);
+            const ageCheck = age >= 13 ? "CONFIRMED" : "DENIED";
+            let messageLines = [
+                `SELECTED MODE: ${modes}`,
+                `SUBSCRIPTION STATUS: ${isSubscribed ? "TRUE" : "FALSE"}`,
+                `AGE VERIFICATION: ${ageCheck}`,
+            ];
+            modeOutput.textContent = "";
+            modeOutput.textContent += "SYSTEM NOTICE: AUTH SEQUENCE INITIATED\n";
+            modeOutput.textContent += "EVALUATING ACCESS CONDITIONS...\n";
 
             messageLines.forEach((line, i) => {
                 setTimeout(() => {
                     modeOutput.textContent += line + "\n";
-                }, 1000+ i * 500);
+                }, 1000 + i * 500);
+            });
 
-            });    
+            setTimeout(() => {
+                modeOutput.textContent = "FINALIZING ACCESS CHECK";
+                let dotCount = 0;
+                const dotInterval = setInterval(() => {
+                    dotCount = (dotCount % 3) + 1;
+                    modeOutput.textContent = "FINALIZING ACCESS CHECK" + ".".repeat(dotCount);
+                }, 400);
+                setTimeout(() => {
+                    clearInterval(dotInterval);
+                }, 2500);
+            }, 1000 + messageLines.length * 500 + 800);
 
-                 setTimeout(() => {
-            if (age >= 13 && isSubscribed && modes === "DARK") {
-                btnContinue.style.display = "inline-block";
-                accessGranted.style.display = "block";
-                
-            } else {
-                btnContinue.style.display = "none";
-                accessGranted.style.display = "none";
-                modeOutput.textContent += "ACCESS STATUS: DENIED\n";
-            }
-        }, 1000 + messageLines.length * 500 + 500); 
-    });
+            setTimeout(() => {
+                if (age >= 13 && isSubscribed && modes === "DARK") {
+                    btnContinue.style.display = "inline-block";
+                    accessGranted.style.display = "block";
+                } else {
+                    btnContinue.style.display = "none";
+                    accessGranted.style.display = "none";
+                    modeOutput.textContent += "\nACCESS STATUS: DENIED\n";
+                }
+            }, 1000 + messageLines.length * 500 + 800 + 2500);
+        });
     </script>
 
     <script src="Javascript-linking/index_link.js"></script>
-    
+
 
 </body>
 
