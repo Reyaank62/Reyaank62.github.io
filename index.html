@@ -166,23 +166,39 @@
         const modeOutput = document.getElementById("modeOutput");
         const btnContinue = document.getElementById("btnContinue");
 
-        btnSubmit.addEventListener("click", () => {
-            let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
-            let isSubscribed = subscribeBox.checked;
-            let message = "SELECTED MODE: " + modes + "\n" + "SUBSCRIPTION STATUS: " + (isSubscribed ? "TRUE" : "FALSE");
-             modeOutput.textContent = message;
+    btnSubmit.addEventListener("click", () => {
+        let modes = document.querySelector('input[name="mode"]:checked').value.toUpperCase();
+        let isSubscribed = subscribeBox.checked;
+        let messageLines = [
+            `SELECTED MODE: ${modes}`,
+            `SUBSCRIPTION STATUS: ${isSubscribed ? "TRUE" : "FALSE"}`
+        ];
+             modeOutput.textContent = "";
 
-             const age = parseInt(ageInput.value,);
+            messageLines.forEach((line, i) => {
+                setTimeout(() => {
+                    modeOutput.textContent += line + "\n";
+                }, i * 500);
 
+            });    
+        const age = parseInt(ageInput.value);
 
-            if (age >= 13 && isSubscribed && modes === "DARK") {
-                btnContinue.style.display = "inline-block";
-                accessGranted.style.display = "block";
-            } else {
-                btnContinue.style.display = "none";
-                accessGranted.style.display = "none"; 
-            }
-        });
+        setTimeout(() => {
+            modeOutput.textContent += "EVALUATING ACCESS CONDITIONS...\n";
+
+            setTimeout(() => {
+                if (age >= 13 && isSubscribed && modes === "DARK") {
+                    btnContinue.style.display = "inline-block";
+                    accessGranted.style.display = "block";
+                    
+                } else {
+                    btnContinue.style.display = "none";
+                    accessGranted.style.display = "none";
+                    modeOutput.textContent += "ACCESS STATUS: DENIED\n";
+                }
+            }, 1000);
+        }, messageLines.length * 500);
+    });
     </script>
 
     <script src="Javascript-linking/index_link.js"></script>
