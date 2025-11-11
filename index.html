@@ -147,8 +147,10 @@
             function updateColorOutput() {
                 let color = colorInput.value;
                 let volume = volumeInput.value;
-                colorOutput.textContent = `Color: ${color}, Volume: ${volume}`;
+                colorOutput.textContent = `COLOR: ${color}, VOLUME: ${volume}`;
                 colorOutput.style.backgroundColor = color;
+
+                document.body.style.backgroundColor = color;
             }
         colorInput.addEventListener("input", updateColorOutput);
         volumeInput.addEventListener("input", updateColorOutput);
