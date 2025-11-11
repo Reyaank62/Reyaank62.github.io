@@ -20,7 +20,10 @@
         <h2>Countdown</h2>
         <p>Widget to count down the time until class ends</p>
         <label for="dayinput">Enter Day</label>
-        <input type="text" id="dayinput" placeholder="e.g., Monday">
+        <input type="text" id="dayinput" placeholder="e.g., monday">
+        
+        <label for="periodinput">Enter Period</label>
+        <input type="text" id="periodinput" placeholder="e.g., 1">
 
         <button id="start">Submit</button>
         <label for="countdown">Time Remaining:</label>
@@ -29,43 +32,7 @@
         <button id="main">Return To Homepage</button>
     </section>
 
-    <script>
-        let countdownInterval = null;
-
-        start.onclick = function () {
-            if (countdownInterval) {
-                clearInterval(countdownInterval);
-            }
-
-            let dayText = dayinput.value.toLowerCase()
-            let dayMap = { sun: 0, mon: 1, tue: 2, wed: 3, thu: 4, fri: 5, sat: 6 }
-            let targetDay = dayMap[dayText.slice(0, 3)] ?? new Date().getDay()
-
-            function updateCountdown() {
-                let now = new Date()
-                let target = new Date()
-
-                if (targetDay === 1) {
-                    target.setHours(10, 10, 0, 0)
-                } else {
-                    target.setHours(11, 40, 0, 0)
-                }
-
-                let daysAway = (targetDay - now.getDay() + 7) % 7
-                if (daysAway === 0 && now > target) daysAway = 7
-                target.setDate(now.getDate() + daysAway)
-                let diff = target - now
-                let daysLeft = Math.floor(diff / (1000 * 60 * 60 * 24))
-                let hoursLeft = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-                let minutesLeft = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60))
-                let secondsLeft = Math.floor((diff % (1000 * 60)) / 1000)
-                countdown.value = daysLeft + "d " + hoursLeft + "h " + minutesLeft + "m " + secondsLeft + "s"
-            }
-
-            updateCountdown()
-            countdownInterval = setInterval(updateCountdown, 1000)
-        }
-    </script>
+    <script src="Javascript/counter-main.js"></script>
     <script src="Javascript-linking/counter_link.js"></script>
 
 </body>
