@@ -3,5 +3,9 @@ setTimeout(() => {
     if (secretBtn) {
         secretBtn.style.display = 'block';
     }
-}, 600000);
+}, 5);
+
+document.getElementById("secret-btn1").onclick = function () {
+    window.location.href = "/secret/html/secret2.html";
+}
 
