@@ -9,7 +9,7 @@ const messages = [
 ];
 
 
-if (Math.random() < 0.4) {
+if (Math.random() < 0.75) {
     const msg = messages[Math.floor(Math.random() * messages.length)];
     const messageEl = document.getElementById("message");
     messageEl.textContent = msg;
